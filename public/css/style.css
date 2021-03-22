@@ -1,0 +1,17 @@
+body {
+   font-family: 'Roboto', sans-serif;
+}
+
+.navbar .container-fluid .collapse {
+   justify-content: space-between;
+}
+
+.form-container {
+   margin-top: 10vh;
+   width: 50%;
+   text-align: center;
+}
+
+.btn-login {
+   padding: 1em 5em;
+}

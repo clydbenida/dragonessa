@@ -1,0 +1,60 @@
+.sidebar {
+   background-color: white;
+}
+
+.content {
+   background-color: #f3f3f3;
+}
+
+.sales-report {
+   background: #9b9b9b;
+   color: #f3f3f3;
+   text-align: center;
+   padding: 8em 0;
+   border-radius: 25px;
+}
+
+.todo-list {
+   list-style-type: none;
+   padding: 0;
+}
+
+.todo-item {
+   font-size: larger;
+   background-color: #e4caca;
+   border-radius: 15px;
+   padding: .8em;
+   margin: 1em 0;
+   display: flex;
+   justify-content: space-between;
+}
+
+.todo-container {
+   background-color: #dbdbdb;
+   border-radius: 25px;
+   padding: .825em;
+}
+
+.todo-controls {
+   display:flex;
+   opacity: 0;
+   transition: all 250ms ease-in-out;
+   -webkit-transition: all 250ms ease-in-out;
+}
+.todo-controls div {
+   margin: 0 5px;
+}
+
+.todo-item:hover .todo-controls {
+   opacity: 1
+}
+
+.todo-header {
+   display: flex;
+   justify-content: space-between;
+}
+
+#add-todo {
+   line-height: .955em;
+   border-radius: 1em;
+}

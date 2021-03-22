@@ -1,0 +1,130 @@
+<%- include("./partials/header") %>
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+         <!-- Navbar Brand -->
+        <a class="navbar-brand" href="#">Dragonessa Admin</a>
+
+        <!-- Hamburger Button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navigation Buttons -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Greetings, Admin!</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="container-fluid">
+       <div class="row">
+          <!-- Sidebar -->
+          <div class="col-md-2 sidebar">
+            <ul>
+               <li>
+                  <div>
+                     <h4>Products</h4>
+                     <div>View Products</div>
+                     <div>Add Product</div>
+                  </div>
+               </li>
+               <li>
+                  <div>
+                     <h4>Orders</h4>
+                     <div>View Orders</div>
+                     <div>Cancellation</div>
+                  </div>
+               </li>
+            </ul>
+          </div>
+          <!-- Main Content -->
+          <div class="col-md content">
+             <div class="container-fluid p-1">
+                <div class="row p-1">
+                  <div class="col-md-8 sales-report mx-1">
+                    <h2>Nothing to report yet :/</h2>
+                  </div>
+                  <div class="col-md todo-container mx-1">
+                    <h3 class="todo-header">
+                      Todo List:
+                      <div>
+                        <button id="add-todo">+</button>
+                      </div>
+                    </h3>
+                    
+                    <!-- TODO LIST IS LIMITED UP TO EIGHTEEN (18) CHARACTERS -->
+                      <ul class="todo-list">
+                        <li>
+                          <div class="todo-item">
+                            Hello wrold!!
+                            <div class="todo-controls">
+                              <div id="check">
+                                <img src="/img/008-check.png" alt="" srcset="" width="25">
+                              </div>
+                              <div id="edit">
+                                <img src="/img/062-pencil.png" alt="" srcset="" width="25">
+                              </div>
+                              <div id="delete">
+                                <img src="/img/076-remove.png" alt="" srcset="" width="25">
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="todo-item">
+                            Sample Todo 2
+                            <div class="todo-controls">
+                              <div id="check">
+                                <img src="/img/008-check.png" alt="" srcset="" width="25">
+                              </div>
+                              <div id="edit">
+                                <img src="/img/062-pencil.png" alt="" srcset="" width="25">
+                              </div>
+                              <div id="delete">
+                                <img src="/img/076-remove.png" alt="" srcset="" width="25">
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="todo-item">
+                            Sample Todo 3
+                            <div class="todo-controls">
+                              <div id="check">
+                                <img src="/img/008-check.png" alt="" srcset="" width="25">
+                              </div>
+                              <div id="edit">
+                                <img src="/img/062-pencil.png" alt="" srcset="" width="25">
+                              </div>
+                              <div id="delete">
+                                <img src="/img/076-remove.png" alt="" srcset="" width="25">
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                  </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
