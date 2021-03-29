@@ -1,9 +1,16 @@
 .sidebar {
    background-color: white;
+   padding-top: 1rem;
+   box-shadow: 0px .1rem 10px rgba(0, 0, 0, 0.034);
+}
+
+.bg-light {
+   background-color: white !important;
 }
 
 .content {
-   background-color: #f3f3f3;
+   background-color: #f1f1f1; 
+   padding-top: 1rem;
 }
 
 a {
@@ -84,7 +91,6 @@ a:hover {
 }
 
 .product-table-header {
-   
    padding: 1em;
 }
 
@@ -93,14 +99,14 @@ a:hover {
    border-radius: 10px;
    margin: 1em auto;
    padding: .5rem 1.5rem;
-   background-color: rgb(231, 231, 231);
+   background-color: rgb(253, 253, 253);
 }
 
 .product-item {
    padding: 1rem 3px;
    border-radius: 1px;
    border-bottom: 1px solid rgb(231, 231, 231);
-   background-color: #f3f3f3;
+   background-color: white;
 }
 
 .product-item:hover {
