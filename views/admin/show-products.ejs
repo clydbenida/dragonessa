@@ -1,0 +1,58 @@
+<%- include("./partials/header") %>
+<!-- Content -->
+<div class="container-fluid">
+   <div class="row">
+      <!-- Sidebar -->
+      <%- include("./partials/sidebar", {active: "show-products"}) %>
+      <!-- Main Content -->
+      <div class="col-md content">
+         <div class="container">
+            <h3>Products</h3>
+            <div class="row align-items-center">
+               <div class="col-md">
+                  <h6>
+                     <%= products.length %> products
+                  </h6>
+               </div>
+               <div class="col-md text-end">
+                  <a href="/admin/products/new" class="btn btn-cust">Add new Product</a>
+               </div>
+            </div>
+            
+            <div class="container-fluid product-table">
+               <div class="row product-table-header">
+                  <div class="col-md-1"></div>
+                  <div class="col-md">
+                     <h5>Product Name</h5>
+                  </div>
+                  <div class="col-md-2"><h5>Stock</h5></div>
+                  <div class="col-md-2"><h5>Price</h5></div>
+                  <div class="col-md-2"><h5>Controls</h5></div>
+               </div>
+               <% for( let p of products ) { %>
+                  <div class="row product-item">
+                     <div class="col-md-1"><img src="/img/041-graph.png" width="52"></div>
+                     <div class="col-md">
+                        <a href="/admin/product/<%= p._id %>">
+                        <%= p.name %>
+                        <div class="desc">
+                           <%= p.desc %>
+                        </div>
+                     </a>
+                     </div>
+                     <div class="col-md-2"><%= p.qty %></div>
+                     <div class="col-md-2"><%= p.price %> </div>
+                     <div class="col-md-2" class="controls">
+                        <a href="#"><img src="/img/062-pencil-primary.png" alt="" width="28"></a>
+                        <a href="#"><img src="/img/076-remove.png" alt="" width="28"></a>
+                     </div>
+                  </div>
+               <% } %>
+               
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<%- include("./partials/footer") %>

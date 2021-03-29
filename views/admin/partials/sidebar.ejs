@@ -1,0 +1,69 @@
+<div class="col-md-2 sidebar">
+   <ul>
+      <!-- <li>
+         <div>
+            <h4>Products</h4>
+
+            <% if (active === "show-products"){ %>
+               <div><a href="/admin/products" class="active">View Products</a></div>
+            <% } else { %>
+            <div><a href="/admin/products">View Products</a></div>
+            <% } %>
+
+            <% if (active === "new-product"){ %>
+               <div><a href="/admin/products/new" class="active">Add Product</a></div>
+            <% } else { %>
+            <div><a href="/admin/products/new">Add Product</a></div>
+            <% } %>
+
+         </div>
+      </li> -->
+      <li>
+         <h4>
+            <a data-bs-toggle="collapse" href="#productCollapse" role="button" aria-expanded="true" aria-controls="collapseExample">
+               Products
+            </a>
+         </h4>
+          <div class="collapse show" id="productCollapse">
+            <div class="card card-body">
+               <% if (active === "show-products"){ %>
+                  <div><a href="/admin/products" class="active">View Products</a></div>
+               <% } else { %>
+               <div><a href="/admin/products">View Products</a></div>
+               <% } %>
+   
+               <% if (active === "new-product"){ %>
+                  <div><a href="/admin/products/new" class="active">Add Product</a></div>
+               <% } else { %>
+               <div><a href="/admin/products/new">Add Product</a></div>
+               <% } %>
+            </div>
+          </div>
+      </li>
+
+   <!-- FIX HREF OF ANCHOR TAGS IN ORDERS!!! -->
+
+      <li>
+         <h4>
+            <a data-bs-toggle="collapse" href="#orderCollapse" role="button" aria-expanded="true" aria-controls="collapseExample">
+               Orders
+            </a>
+         </h4>
+          <div class="collapse show" id="orderCollapse">
+            <div class="card card-body">
+               <% if (active === "show-products"){ %>
+                  <div><a href="/admin/products" class="active">View Orders</a></div>
+               <% } else { %>
+               <div><a href="/admin/products">View Orders</a></div>
+               <% } %>
+   
+               <% if (active === "new-product"){ %>
+                  <div><a href="/admin/products/new" class="active">Cancellation</a></div>
+               <% } else { %>
+               <div><a href="/admin/products/new">Cancellation</a></div>
+               <% } %>
+            </div>
+          </div>
+      </li>
+   </ul>
+ </div>

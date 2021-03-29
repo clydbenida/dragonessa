@@ -1,0 +1,51 @@
+<%- include("./partials/header") %>
+<!-- Content -->
+<div class="container-fluid">
+   <div class="row">
+      <!-- Sidebar -->
+      <%- include("./partials/sidebar", {active: "new-product"}) %>
+      <!-- Main Content -->
+      <div class="col-md content">
+         <div class="container">
+
+            <form id="add-product-form" action="/admin/products" method="POST" autocomplete="off">
+               <h2>Add New Product</h2>
+               <hr>
+               <div class="mb-3">
+                  <label for="product-name">Product Name</label>
+                  <input class="form-control" type="text" name="name" id="product-name">
+               </div>
+
+               <div class="mb-3">
+                  <label for="product-desc">Product Description</label>
+                  <textarea class="form-control" name="desc" id="product-desc" cols="30" rows="10"></textarea>
+               </div>  
+               
+
+               <div class="row align-items-center">
+                  <div class="container-fluid mb-3">
+                     <div class="row align-items-center">
+                        <div class="col-auto">
+                           <label for="product-qty">Quantity:</label>
+                        </div>
+                        <div class="col-auto">
+                           <input class="form-control" type="number" name="qty" id="product-qty">
+                        </div>
+                        <div class="col-auto">
+                           <label for="product-qty">Price:</label>
+                        </div>
+                        <div class="col-auto">
+                           <input step="0.01" class="form-control" type="number" name="price" id="product-price">
+                        </div>
+                        
+                     </div>
+                  </div>
+                  <button type="submit" class="btn btn-cust btn-lg">Add Product</button>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>
+
+<%- include("./partials/footer") %>
