@@ -29,6 +29,9 @@
                   <div class="col-md-2"><h5>Price</h5></div>
                   <div class="col-md-2"><h5>Controls</h5></div>
                </div>
+
+               <!-- Loop Products array to display products -->
+
                <% for( let p of products ) { %>
                   <div class="row product-item">
                      <div class="col-md-1"><img src="/img/041-graph.png" width="52"></div>
@@ -48,11 +51,12 @@
                      </div>
                   </div>
                <% } %>
-               
+
             </div>
          </div>
       </div>
    </div>
 </div>
+
 
 <%- include("./partials/footer") %>
