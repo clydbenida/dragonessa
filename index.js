@@ -1,7 +1,14 @@
+if (process.env.NODE_ENV !== "production") {
+   require('dotenv').config()
+}
+
 const express = require("express");
 const path = require('path');
 const app = express();
 const mongoose = require('mongoose')
+const multer = require('multer')
+const { storage } = require('./cloudinary')
+const upload = multer({ storage })
 
 mongoose.connect('mongodb://localhost:27017/dragonessa', {useNewUrlParser: true, useUnifiedTopology: true})
    .then(() => console.log("%&%&%&%&%&%&%& MONGO CONNECTION IS OPEN! %&%&%&%&%&%&%&"))
@@ -26,6 +33,11 @@ app.get("/", (req, res) => {
    res.render("index");
 });
 
+app.get("/products", async (req, res) => {
+   const products = await Product.find();
+   res.render("show-products", {products});
+})
+
 // %&%&%&%&%&%&%&%&%&%&%&% ADMIN ROUTES %&%&%&%&%&%&%&%&%&%&%&%
 
 app.get("/admin", (req, res) => {
@@ -47,6 +59,10 @@ app.get("/admin/products", async (req, res) => {
       for (let p of products) {
          const newDesc = removeTags(p.desc)
          p.desc = newDesc.slice(0, 28).concat("...")
+         for (let img of p.images) {
+            if (img["isDefault"]) 
+               p.defaultImg = img;
+         }
       }
       res.render("./admin/show-products", { products });
    } catch (err) {
@@ -59,12 +75,23 @@ app.get("/admin/products/new", (req, res) => {
    res.render("./admin/new-product");
 })
 
-app.post("/admin/products", async (req, res) => {
-   const { name, qty, desc, price } = req.body;
+app.post("/admin/products", upload.array('image'), async (req, res) => {
+   const { name, qty, desc, price, defaultImg } = req.body;
+   console.log(req.body);
+   
    try {
-      const newProduct = await new Product({
+      const newProduct = new Product({
          name, qty, desc, price
-      }).save()
+      })
+      newProduct.images = req.files.map((f, idx) => {
+         if (idx == defaultImg) {
+            console.log("index: ", idx)
+            console.log("defaultIMG: ", defaultImg)
+            return {url: f.path, filename: f.filename, isDefault: true}
+         }
+         return {url: f.path, filename: f.filename}
+      })
+      await newProduct.save()
       res.redirect("/admin/products")
    } catch(err) {
       console.log(err)

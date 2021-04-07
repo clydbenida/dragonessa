@@ -1,0 +1,23 @@
+<%- include("./partials/header") %>
+
+<div class="container">
+   <div class="row">
+      <% for (let p of products) { %>
+         <div class="col-md-2 product-item">
+            <h6>
+               <%= p.name %>
+            </h6>
+            <div>Php <%= p.price %></div>
+            <div>
+               <img src="/img/star-rating/<%= p.rating %>.png" width="86"/>
+            </div>
+            <div>
+               <%= p.sold %> sold
+            </div>
+         </div>
+      <% } %>
+      
+   </div>
+</div>
+
+<%- include("./partials/footer") %>

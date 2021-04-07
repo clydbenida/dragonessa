@@ -8,9 +8,10 @@
       <div class="col-md content">
          <div class="container">
 
-            <form id="add-product-form" action="/admin/products" method="POST" autocomplete="off">
+            <form id="add-product-form" action="/admin/products" method="POST" autocomplete="off" enctype="multipart/form-data">
                <h2>Add New Product</h2>
                <hr>
+               <h3>Basic Information</h3>
                <div class="mb-3">
                   <label for="product-name">Product Name</label>
                   <input class="form-control" type="text" name="name" id="product-name">
@@ -25,17 +26,29 @@
                <div class="row align-items-center">
                   <div class="container-fluid mb-3">
                      <div class="row align-items-center">
-                        <div class="col-auto">
+
+                        <div class="col-md-6">
                            <label for="product-qty">Quantity:</label>
-                        </div>
-                        <div class="col-auto">
                            <input class="form-control" type="number" name="qty" id="product-qty">
                         </div>
-                        <div class="col-auto">
+                        <div class="col-md-6">
                            <label for="product-qty">Price:</label>
-                        </div>
-                        <div class="col-auto">
                            <input step="0.01" class="form-control" type="number" name="price" id="product-price">
+                        </div>
+                     </div>
+                     <hr class="divider">
+                     <div class="row">
+
+                        <!-- PHOTO UPLOAD STUFF GOES HERE!!!! -->
+
+                        <div class="container">
+                           <h3>Media Management</h3>
+                           <input class="form-control" type="file" name="image" id="images" multiple>
+                           <div class="form-check image-prev-container" id="list">
+                              <p id="image-prev-placeholder">
+                                 Select up to 5 images only!
+                              </p>
+                           </div>
                         </div>
                         
                      </div>
@@ -52,4 +65,5 @@
 <script>
    CKEDITOR.replace( 'product-desc' )
 </script>
+<script src="/js/script.js"></script>
 <%- include("./partials/footer") %>
