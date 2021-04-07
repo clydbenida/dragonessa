@@ -2,7 +2,7 @@ function handleFileSelect(evt) {
    
    var files = evt.target.files;
 
-   if (parseInt(files.length) > 5){
+   if (parseInt(files.length) > 5 || parseInt(files.length) <= 0){
       this.files = null;
       document.getElementById('list').innerHTML = `
       <p id="image-prev-placeholder">
