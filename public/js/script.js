@@ -33,10 +33,12 @@ function handleFileSelect(evt) {
             // Render thumbnail.
             var div = document.createElement('div');
             div.innerHTML = [`
+            <div id="img-child-container">
                <input class="form-check-input" type="radio" name="defaultImg" id="flexRadioDefault${i}" value="${i}" required>
                <label for="flexRadioDefault${i}">
                   <img class="img-prev" src=${e.target.result} title="${escape(theFile.name)}">
                </label>
+            </div>
             `].join('');
 
             document.getElementById('list').insertBefore(div, null);

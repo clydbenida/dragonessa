@@ -6,7 +6,13 @@
         <%- include("./partials/sidebar", {active: ""}) %>
         <!-- Main Content -->
         <div class="col-md content">
-            <div class="container-fluid p-1">
+          <div class="contaer-fluid">
+            <div class="row px-3 py-2">
+              <!-- BREADCRUMB -->
+              <%- include("partials/breadcrumb") %> 
+            </div>
+          </div>
+            <div class="container-fluid px-3">
               <div class="row p-1">
                 <div class="col-md-8 sales-report mx-1">
                   <h2>Nothing to report yet :/</h2>

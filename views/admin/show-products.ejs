@@ -6,6 +6,12 @@
       <%- include("./partials/sidebar", {active: "show-products"}) %>
       <!-- Main Content -->
       <div class="col-md content">
+         <div class="container px-0 py-2 mb-3">
+            <div class="row mx-0">
+               <!-- BREADCRUMB -->
+               <%- include("partials/breadcrumb") %> 
+            </div>
+         </div>
          <div class="container">
             <h3>Products</h3>
             <div class="row align-items-center">
@@ -46,12 +52,11 @@
                      <div class="col-md-2"><%= p.qty %></div>
                      <div class="col-md-2"><%= p.price %> </div>
                      <div class="col-md-2" class="controls">
-                        <a href="#"><img src="/img/062-pencil-primary.png" alt="" width="28"></a>
+                        <a href="/admin/product/<%= p._id %>"><img src="/img/062-pencil-primary.png" alt="" width="28"></a>
                         <a href="#"><img src="/img/076-remove.png" alt="" width="28"></a>
                      </div>
                   </div>
                <% } %>
-
             </div>
          </div>
       </div>

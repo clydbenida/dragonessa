@@ -6,6 +6,12 @@
       <%- include("./partials/sidebar", {active: "new-product"}) %>
       <!-- Main Content -->
       <div class="col-md content">
+         <div class="contaer-fluid">
+            <div class="row px-3 py-2">
+              <!-- BREADCRUMB -->
+              <%- include("partials/breadcrumb") %> 
+            </div>
+          </div>
          <div class="container">
 
             <form id="add-product-form" action="/admin/products" method="POST" autocomplete="off" enctype="multipart/form-data">
