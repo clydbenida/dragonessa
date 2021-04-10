@@ -1,19 +1,4 @@
-<%- include("./partials/header") %>
-<!-- Content -->
-<div class="container-fluid">
-   <div class="row">
-      <!-- Sidebar -->
-      <%- include("./partials/sidebar", {active: ""}) %>
-      <!-- Main Content -->
-      <div class="col-md content">
-         <div class="container-fluid px-0 py-2">
-            <div class="row mx-0">
-
-               <!-- BREADCRUMB -->
-               <%- include("partials/breadcrumb") %> 
-
-            </div>
-            <div class="row">
+<%- layout("./admin/layouts/layout") %> 
                <div class="container ">
 
                   <form id="add-product-form" action="/admin/product/<%= product._id %>/edit" method="POST" autocomplete="off" enctype="multipart/form-data">
@@ -70,19 +55,10 @@
                      </div>
                   </form>
                </div>
-            </div>
-         </div>
-         
             
-         
-         
-      </div>
-   </div>
-</div>
 
 <script src="/js/ckeditor/ckeditor.js"></script>
 <script>
    CKEDITOR.replace( 'product-desc' )
 </script>
 <script src="/js/script.js"></script>
-<%- include("./partials/footer") %>
