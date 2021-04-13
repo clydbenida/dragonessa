@@ -29,7 +29,7 @@
          <div class="row product-item">
             <div class="col-md-1"><img src="<%= p.defaultImg.url %>" width="52"></div>
             <div class="col-md">
-               <a href="/admin/product/<%= p._id %>">
+               <a href="/admin/products/<%= p._id %>">
                <%= p.name %>
                <div class="desc">
                   <%= p.desc %>
@@ -39,8 +39,13 @@
             <div class="col-md-2"><%= p.qty %></div>
             <div class="col-md-2"><%= p.price %> </div>
             <div class="col-md-2" class="controls">
-               <a href="/admin/product/<%= p._id %>"><img src="/img/062-pencil-primary.png" alt="" width="28"></a>
-               <a href="#"><img src="/img/076-remove.png" alt="" width="28"></a>
+               <a href="/admin/products/<%= p._id %>"><img src="/img/062-pencil-primary.png" alt="" width="28"></a>
+               <form action="/admin/products/<%= p._id %>?_method=DELETE" method="POST" class="d-inline">
+                  <button class="btn-link">
+                     <img src="/img/076-remove.png" alt="" width="28">
+                  </button>
+               </form>
+               
             </div>
          </div>
       <% } %>

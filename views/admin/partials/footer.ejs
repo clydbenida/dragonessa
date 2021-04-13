@@ -1,11 +1,31 @@
-<footer>
-   <div class="container-fluid">
-      <div class="row">
-         <h4>Footer</h4>
-      </div>
+<footer class="footer bg-dark py-4 mt-auto">
+   <div class="container">
+     <span class="text-muted">&copy; Dragonessa 2021</span>
    </div>
-</footer>
+ </footer>
 
-<script src="/js/bootstrap.min.js"></script>
+<script src="/js/bootstrap/bootstrap.min.js"></script>
+<script>
+   // Example starter JavaScript for disabling form submissions if there are invalid fields
+   (function () {
+     'use strict'
+   
+     // Fetch all the forms we want to apply custom Bootstrap validation styles to
+     const forms = document.querySelectorAll('.validated-form')
+   
+     // Loop over them and prevent submission
+     Array.from(forms)
+       .forEach(function (form) {
+         form.addEventListener('submit', function (event) {
+           if (!form.checkValidity()) {
+             event.preventDefault()
+             event.stopPropagation()
+           }
+   
+           form.classList.add('was-validated')
+         }, false)
+       })
+   })()
+   </script>
 </body>
 </html>

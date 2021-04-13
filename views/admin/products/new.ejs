@@ -1,13 +1,16 @@
 <%- layout("./admin/layouts/layout") %> 
 <div class="container">
 
-   <form id="add-product-form" action="/admin/products" method="POST" autocomplete="off" enctype="multipart/form-data">
+   <form id="add-product-form" class="validated-form" action="/admin/products" method="POST" autocomplete="off" enctype="multipart/form-data" novalidate>
       <h2>Add New Product</h2>
       <hr>
       <h3>Basic Information</h3>
       <div class="mb-3">
          <label for="product-name">Product Name</label>
-         <input class="form-control" type="text" name="name" id="product-name">
+         <input class="form-control" type="text" name="name" id="product-name" required>
+         <div class="valid-feedback">
+            Looks good!
+         </div>
       </div>
 
       <div class="mb-3">
@@ -22,11 +25,17 @@
 
                <div class="col-md-6">
                   <label for="product-qty">Quantity:</label>
-                  <input class="form-control" type="number" name="qty" id="product-qty">
+                  <input class="form-control" type="number" name="qty" id="product-qty" required>
+                  <div class="valid-feedback">
+                     Looks good!
+                  </div>
                </div>
                <div class="col-md-6">
                   <label for="product-qty">Price:</label>
-                  <input step="0.01" class="form-control" type="number" name="price" id="product-price">
+                  <input step="0.01" class="form-control" type="number" name="price" id="product-price" required>
+                  <div class="valid-feedback">
+                     Looks good!
+                  </div>
                </div>
             </div>
             <hr class="divider">

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const cloudinary = require("../cloudinary")
 
 const productSchema = new mongoose.Schema({
    name: {
@@ -34,6 +35,15 @@ const productSchema = new mongoose.Schema({
       filename: String,
       isDefault: Boolean
    }]
+})
+
+productSchema.post("findOneAndDelete", async function(doc){
+   console.log(cloudinary.cloudinary.api)
+   for (let img of doc.images) {
+      cloudinary.cloudinary.api.delete_resources(img.filename, function(err, result){
+         console.log(err, result)
+      });
+   }
 })
 
 const Product = mongoose.model('Product', productSchema)

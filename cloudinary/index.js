@@ -11,7 +11,7 @@ const storage = new CloudinaryStorage({
    cloudinary,
    params: {
       folder: (req, file) => {
-         if (req.url == "/admin/products")
+         if (req.url == "/products")
             return 'dragonessa/products'
       },
       allowedFormats: ['jpeg', 'jpg', 'png']
