@@ -127,9 +127,24 @@ a:hover {
    opacity: 1;
 }
 
+/* main {
+   min-height: 85vh;
+} */
+
+main > .row {
+   min-height: 80.2vh;
+}
+
 footer {
    background-color: rgb(104, 104, 104);
    color: snow;
+   bottom: 0;
+}
+
+.btn-link {
+   border: none;
+   background-color: inherit;
+   padding: 0;
 }
 
 .btn-cust {
