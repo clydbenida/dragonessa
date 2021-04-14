@@ -27,7 +27,7 @@
 
       <% for( let p of products ) { %>
          <div class="row product-item">
-            <div class="col-md-1"><img src="<%= p.defaultImg.url %>" width="52"></div>
+            <div class="col-md-1"><img src="<%= p.images.default.url %>" width="52"></div>
             <div class="col-md">
                <a href="/admin/products/<%= p._id %>">
                <%= p.name %>
@@ -45,7 +45,6 @@
                      <img src="/img/076-remove.png" alt="" width="28">
                   </button>
                </form>
-               
             </div>
          </div>
       <% } %>

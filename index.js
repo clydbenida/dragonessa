@@ -11,8 +11,10 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const catchAsync = require("./utils/CatchAsync");
 const ExpressError = require("./utils/ExpressError");
-const adminRoutes = require("./routes/admin");
 const methodOverride = require("method-override");
+
+const adminRoutes = require("./routes/admin");
+const clientRoutes = require("./routes/client");
 
 mongoose
   .connect("mongodb://localhost:27017/dragonessa", {
@@ -39,18 +41,7 @@ app.use(passport.session());
 // ROUTES
 
 app.use("/admin", adminRoutes)
-
-app.get("/", (req, res) => {
-  res.render("./client/index");
-});
-
-app.get(
-  "/products",
-  catchAsync(async (req, res) => {
-    const products = await Product.find();
-    res.render("./client/products/show", { products });
-  })
-);
+app.use("/", clientRoutes)
 
 app.all("*", (req, res, next) => {
   next(new ExpressError("Page not found!", 404));

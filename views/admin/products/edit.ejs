@@ -38,9 +38,15 @@
                                  <h3>Media Management</h3>
                                  <input class="form-control" type="file" name="image" id="images" accept=".jpg, .jpeg, .png" multiple>
                                  <div class="form-check image-prev-container" id="list">
-                                    <% product.images.forEach((img, idx) => { %>
+                                    <div id="img-child-container">
+                                       <input class="form-check-input" type="radio" name="defaultImg" id="<%= product.images.default._id %>" value="<%= product.images.default._id %>" checked required>
+                                       <label for="<%= product.images.default._id %>">
+                                          <img class="img-prev" src="<%= product.images.default.url %>" title="<%= product.images.default.filename %>">
+                                       </label>
+                                    </div>
+                                    <% product.images.list.forEach((img, idx) => { %>
                                        <div id="img-child-container">
-                                          <input class="form-check-input" type="radio" name="defaultImg" id="<%= img._id %>" value="<%= img._id %>" <%= img.isDefault ? "checked" : "" %> required>
+                                          <input class="form-check-input" type="radio" name="defaultImg" id="<%= img._id %>" value="<%= img._id %>" required>
                                           <label for="<%= img._id %>">
                                              <img class="img-prev" src="<%= img.url %>" title="<%= img.filename %>">
                                           </label>

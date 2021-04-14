@@ -42,9 +42,6 @@ router.get("/products", catchAsync(async (req, res) => {
     for (let p of products) {
       const newDesc = removeTags(p.desc);
       p.desc = newDesc.slice(0, 28).concat("...");
-      for (let img of p.images) {
-        if (img["isDefault"]) p.defaultImg = img;
-      }
     }
     res.render("./admin/products/show", { products });
   })
@@ -69,15 +66,23 @@ router.post("/products", upload.array("image"), catchAsync(async (req, res) => {
       price,
     });
     // console.log(req.files);
-    newProduct.images = req.files.map((f, idx) => {
+    newProduct.images.list = []
+    req.files.forEach((el, idx) => {
       if (idx == defaultImg) {
-        return { url: f.path, filename: f.filename, isDefault: true };
+        newProduct.images.default = {url: el.path, filename: el.filename};
+      } else {
+        newProduct.images.list.push({url: el.path, filename: el.filename})
       }
-      return { url: f.path, filename: f.filename };
-    });
+    })
+    // newProduct.images = req.files.map((f, idx) => {
+    //   if (idx == defaultImg) {
+    //     return { url: f.path, filename: f.filename, isDefault: true };
+    //   }
+    //   return { url: f.path, filename: f.filename };
+    // });
     await newProduct.save();
     res.redirect("/admin/products");
-
+    
     // const { name, qty, desc, price } = req.body;
     // const newProduct = await new Product({
     //    name, qty, desc, price

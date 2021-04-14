@@ -30,11 +30,16 @@ const productSchema = new mongoose.Schema({
       min: 0,
       default: 0
    },
-   images: [{
-      url: String,
-      filename: String,
-      isDefault: Boolean
-   }]
+   images: {
+      default: {
+         url: String,
+         filename: String
+      },
+      list: [{
+         url: String,
+         filename: String
+      }]
+   }
 })
 
 productSchema.post("findOneAndDelete", async function(doc){
