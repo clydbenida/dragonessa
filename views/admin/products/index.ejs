@@ -37,7 +37,7 @@
             </a>
             </div>
             <div class="col-md-2"><%= p.qty %></div>
-            <div class="col-md-2"><%= p.price %> </div>
+            <div class="col-md-2">₱ <%= p.price %> </div>
             <div class="col-md-2" class="controls">
                <a href="/admin/products/<%= p._id %>"><img src="/img/062-pencil-primary.png" alt="" width="28"></a>
                <form action="/admin/products/<%= p._id %>?_method=DELETE" method="POST" class="d-inline">

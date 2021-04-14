@@ -13,6 +13,8 @@ const storage = new CloudinaryStorage({
       folder: (req, file) => {
          if (req.url == "/products")
             return 'dragonessa/products'
+         if (req.url.includes("PUT") || req.url.includes("/products/"))
+            return 'dragonessa/products'
       },
       allowedFormats: ['jpeg', 'jpg', 'png']
    }

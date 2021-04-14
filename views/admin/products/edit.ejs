@@ -1,66 +1,71 @@
 <%- layout("./admin/layouts/layout") %> 
-               <div class="container ">
+<div class="container ">
 
-                  <form id="add-product-form" action="/admin/product/<%= product._id %>/edit" method="POST" autocomplete="off" enctype="multipart/form-data">
-                     <h2>Edit Product</h2>
-                     <hr>
-                     <h3>Basic Information</h3>
-                     <div class="mb-3">
-                        <label for="product-name">Product Name</label>
-                        <input class="form-control" type="text" name="name" id="product-name" value="<%= product.name %>">
-                     </div>
+   <form id="add-product-form" action="/admin/products/<%= product._id %>?_method=PUT" method="POST" autocomplete="off" enctype="multipart/form-data">
+      <h2>Edit Product</h2>
+      <hr>
+      <h3>Basic Information</h3>
+      <div class="mb-3">
+         <label for="product-name">Product Name</label>
+         <input class="form-control" type="text" name="product[name]" id="product-name" value="<%= product.name %>">
+      </div>
+
+      <div class="mb-3">
+         <label for="product-desc">Product Description</label>
+         <textarea class="form-control" name="product[desc]" id="product-desc" cols="30" rows="10" ><%= product.desc %></textarea>
+      </div>  
       
-                     <div class="mb-3">
-                        <label for="product-desc">Product Description</label>
-                        <textarea class="form-control" name="desc" id="product-desc" cols="30" rows="10" ><%= product.desc %></textarea>
-                     </div>  
-                     
-      
-                     <div class="row align-items-center">
-                        <div class="container-fluid mb-3">
-                           <div class="row align-items-center">
-      
-                              <div class="col-md-6">
-                                 <label for="product-qty">Quantity:</label>
-                                 <input class="form-control" type="number" name="qty" id="product-qty" value="<%= product.qty %>">
-                              </div>
-                              <div class="col-md-6">
-                                 <label for="product-qty">Price:</label>
-                                 <input step="0.01" class="form-control" type="number" name="price" id="product-price"value="<%= product.price %>">
-                              </div>
-                           </div>
-                           <hr class="divider">
-                           <div class="row">
-      
-                              <!-- PHOTO UPLOAD STUFF GOES HERE!!!! -->
-      
-                              <div class="container">
-                                 <h3>Media Management</h3>
-                                 <input class="form-control" type="file" name="image" id="images" accept=".jpg, .jpeg, .png" multiple>
-                                 <div class="form-check image-prev-container" id="list">
-                                    <div id="img-child-container">
-                                       <input class="form-check-input" type="radio" name="defaultImg" id="<%= product.images.default._id %>" value="<%= product.images.default._id %>" checked required>
-                                       <label for="<%= product.images.default._id %>">
-                                          <img class="img-prev" src="<%= product.images.default.url %>" title="<%= product.images.default.filename %>">
-                                       </label>
-                                    </div>
-                                    <% product.images.list.forEach((img, idx) => { %>
-                                       <div id="img-child-container">
-                                          <input class="form-check-input" type="radio" name="defaultImg" id="<%= img._id %>" value="<%= img._id %>" required>
-                                          <label for="<%= img._id %>">
-                                             <img class="img-prev" src="<%= img.url %>" title="<%= img.filename %>">
-                                          </label>
-                                       </div>
-                                    <% }) %> 
-                                 </div>
-                              </div>
-                              
-                           </div>
-                        </div>
-                        <button type="submit" class="btn btn-cust btn-lg">Add Product</button>
-                     </div>
-                  </form>
+
+      <div class="row align-items-center">
+         <div class="container-fluid mb-3">
+            <div class="row align-items-center">
+
+               <div class="col-md-6">
+                  <label for="product-qty">Quantity:</label>
+                  <input class="form-control" type="number" name="product[qty]" id="product-qty" value="<%= product.qty %>">
                </div>
+               <div class="col-md-6">
+                  <label for="product-qty">Price:</label>
+                  <input step="0.01" class="form-control" type="number" name="product[price]" id="product-price"value="<%= product.price %>">
+               </div>
+            </div>
+            <hr class="divider">
+            <div class="row">
+
+               <!-- PHOTO UPLOAD STUFF GOES HERE!!!! -->
+               <div class="container">
+                  <div class="row">
+                     <h3>Media Management</h3>
+                     <div class="col-md-4">
+                        
+                        <input class="form-control" type="file" name="default" id="defaultImg" accept=".jpg, .jpeg, .png" width="36">
+                        <label for="defaultImg" class="d-block" id="defaultLabel">
+                           <div class="image-prev-container py-3" id="defaultContainer">
+                              <img class="img-prev" src="<%= product.images.default.url %>" title="<%= product.images.default.filename %>">
+                           </div>
+                        </label>
+                     </div>
+                     
+                     <div class="col-md-8">
+                        <input class="form-control" type="file" name="images" id="images" accept=".jpg, .jpeg, .png" multiple width="36">
+                        <label for="images" class="d-block">
+                           <div class="image-prev-container py-3" id="list">
+                              <% product.images.list.forEach((img, idx) => { %>
+                                 <div id="img-child-container">
+                                    <img class="img-prev" src="<%= img.url %>" title="<%= img.filename %>">
+                                 </div>
+                              <% }) %> 
+                           </div>
+                        </label>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <button type="submit" class="btn btn-cust btn-lg">Add Product</button>
+      </div>
+   </form>
+</div>
             
 
 <script src="/js/ckeditor/ckeditor.js"></script>

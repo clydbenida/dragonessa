@@ -9,9 +9,13 @@ router.get("/", (req, res) => {
 
 router.get("/products", catchAsync(async (req, res) => {
     const products = await Product.find();
-    console.log(products[0].images)
-    res.render("./client/products/show", { products });
+    res.render("./client/products/index", { products });
   })
 );
+
+router.get("/products/:id", catchAsync(async (req, res) => {
+  const product = await Product.findById(req.params.id);
+  res.render("./client/products/show", {product})
+}))
 
 module.exports = router;

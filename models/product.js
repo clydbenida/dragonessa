@@ -43,8 +43,10 @@ const productSchema = new mongoose.Schema({
 })
 
 productSchema.post("findOneAndDelete", async function(doc){
-   console.log(cloudinary.cloudinary.api)
-   for (let img of doc.images) {
+   cloudinary.cloudinary.api.delete_resources(doc.images.default.filename, function(err, result){
+      console.log(err, result)
+   });
+   for (let img of doc.images.list) {
       cloudinary.cloudinary.api.delete_resources(img.filename, function(err, result){
          console.log(err, result)
       });

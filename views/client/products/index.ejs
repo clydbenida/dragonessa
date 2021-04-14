@@ -1,0 +1,22 @@
+<%- layout("./client/layouts/layout") %>
+
+<div class="row py-4">
+   <% for (let p of products) { %>
+      <div class="col-md-2 product-item">
+         <a href="/products/<%= p._id %>">
+         <img src="<%= p.images.default.url %>" alt="" class="img-thumbnail">
+         <h6>
+            <%= p.name %>
+         </h6>
+         <div>₱ <%= p.price %></div>
+         <div>
+            <img src="/img/star-rating/<%= p.rating %>.png" width="86"/>
+         </div>
+         <div>
+            <%= p.sold %> sold
+         </div>
+      </a>
+      </div>
+   <% } %>
+   
+</div>

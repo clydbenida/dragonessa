@@ -1,20 +1,38 @@
 <%- layout("./client/layouts/layout") %>
 
-<div class="row">
-   <% for (let p of products) { %>
-      <div class="col-md-2 product-item">
-         <img src="" alt="">
-         <h6>
-            <%= p.name %>
-         </h6>
-         <div>Php <%= p.price %></div>
-         <div>
-            <img src="/img/star-rating/<%= p.rating %>.png" width="86"/>
-         </div>
-         <div>
-            <%= p.sold %> sold
-         </div>
+<div class="row py-4">
+  <div class="col-md-4">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="<%= product.images.default.url %>" class="d-block w-100" alt="...">
+        </div>
+        <% for (let img of product.images.list){ %> 
+        <div class="carousel-item">
+          <img src="<%= img.url %>" class="d-block w-100" alt="...">
+        </div>
+        <% } %> 
       </div>
-   <% } %>
-   
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="col-md-8">
+    <div>
+      <h1><%= product.name %> </h1>
+      <span><img src="/img/star-rating/0.png" alt="" width="110"></span>
+    </div>
+    <div>
+      <h2>₱ <%= product.price %> </h2>
+    </div>
+    <hr>
+    <p><%- product.desc %> </p>
+  </div>
 </div>

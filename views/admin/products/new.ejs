@@ -44,12 +44,30 @@
                <!-- PHOTO UPLOAD STUFF GOES HERE!!!! -->
 
                <div class="container">
-                  <h3>Media Management</h3>
-                  <input class="form-control" type="file" name="image" id="images" accept=".jpg, .jpeg, .png" multiple>
-                  <div class="form-check image-prev-container" id="list">
-                     <p id="image-prev-placeholder">
-                        Select up to 5 images only!
-                     </p>
+                  <div class="row">
+                     <h3>Media Management</h3>
+                     <div class="col-md-4">
+                        
+                        <input class="form-control" type="file" name="default" id="defaultImg" accept=".jpg, .jpeg, .png" width="36">
+                        <label for="defaultImg" class="d-block" id="defaultLabel">
+                           <div class="image-prev-container py-3" id="defaultContainer">
+                              <p id="image-prev-placeholder">
+                                 Select a Thumbnail
+                              </p>
+                           </div>
+                        </label>
+                     </div>
+                     
+                     <div class="col-md-8">
+                        <input class="form-control" type="file" name="images" id="images" accept=".jpg, .jpeg, .png" multiple width="36">
+                        <label for="images" class="d-block">
+                           <div class="image-prev-container py-3" id="list">
+                              <p id="image-prev-placeholder">
+                                 Select up to 5 images only!
+                              </p>
+                           </div>
+                        </label>
+                     </div>
                   </div>
                </div>
             </div>

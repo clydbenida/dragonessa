@@ -20,17 +20,18 @@ mongoose
   .connect("mongodb://localhost:27017/dragonessa", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useFindAndModify: false
   })
   .then(() =>
     console.log("%&%&%&%&%&%&%& MONGO CONNECTION IS OPEN! %&%&%&%&%&%&%&")
   )
   .catch((err) => console.log(err));
 
-const Product = require("./models/product");
-
+// views & ejs configs
 app.engine("ejs", ejsMate);
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
+
 app.use(express.static("public"));
 app.use(methodOverride("_method"))
 app.use(express.urlencoded({ extended: true }));
@@ -39,7 +40,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // ROUTES
-
 app.use("/admin", adminRoutes)
 app.use("/", clientRoutes)
 
@@ -53,5 +53,4 @@ app.use((err, req, res, next) => {
   res.status(statusCode).render("error", {err})
 })
 
-
-app.listen(3000, () => console.log("Server is running"));
+app.listen(process.env.PORT || 3000, () => console.log("Server is running"));
