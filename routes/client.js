@@ -7,6 +7,14 @@ router.get("/", (req, res) => {
   res.render("./client/index");
 });
 
+router.get("/search", catchAsync( async (req, res) => {
+  const { searchQuery } = req.query;
+  const results = await Product.find({
+    name: {$regex: searchQuery, $options: "i" }
+  })
+  res.render("./client/search", { results, searchQuery });
+}));
+
 router.get("/products", catchAsync(async (req, res) => {
     const products = await Product.find();
     res.render("./client/products/index", { products });
