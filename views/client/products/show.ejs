@@ -24,15 +24,64 @@
     </div>
   </div>
 
-  <div class="col-md-8">
+  <div class="col-md-8 product-details">
     <div>
-      <h1><%= product.name %> </h1>
-      <span><img src="/img/star-rating/0.png" alt="" width="110"></span>
+      <h1 class="product-name"><%= product.name %> </h1>
     </div>
     <div>
-      <h2>₱ <%= product.price %> </h2>
+      <img src="/img/star-rating/5.png" alt="" width="100">
+    </div>
+    <div>
+      <h2 class="price">₱ <%= product.price %> </h2>
+    </div>
+    
+    <div class="mb-1">
+      <form action="#">
+        <div class="amount-container">
+          <div class="mb-2">
+            <label for="amount" class="text-muted"><small>Quantity: </small></label>
+            <span class="amtController" id="decrement">&minus;</span>
+            <input type="number" name="amount" id="amount" min="0" value="1">
+            <span class="amtController" id="increment">+</span>
+          </div>
+        </div>
+        <button class="btn btn-primary atc-btn" type="submit">Add to Cart</button>
+        <button class="btn btn-primary bn-btn" type="submit">Buy now</button>
+      </form>
     </div>
     <hr>
-    <p><%- product.desc %> </p>
   </div>
 </div>
+<div class="container">
+  <div class="row">
+    <h3>Product Description</h3>
+    <p id="description"><%- product.desc %> </p>
+  </div>
+  <div class="row">
+    <div class="container-fluid" id="reviewContainer">
+      reviews
+    </div>
+  </div>
+</div>
+
+<script>
+  const inc = document.getElementById("increment");
+  const dec = document.getElementById("decrement");
+  const amount = document.getElementById("amount")
+
+  function changeAmount (e) {
+    if (e.target.textContent == "+") {
+      var num = parseInt(amount.value);
+      num = num + 1;
+      amount.value = num;
+      
+    } else {
+      if (amount.value == 0)
+        return
+      amount.value -= 1
+    }
+  }
+
+  inc.addEventListener('click', changeAmount)
+  dec.addEventListener('click', changeAmount)
+</script>
