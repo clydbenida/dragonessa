@@ -4,7 +4,7 @@
   <h3>Search results from "<%= searchQuery %>":</h3>
 
   <% for (let p of results){ %> 
-    <div class="col-md-2 product-item">
+    <div class="col-lg-2 col-md-4 col-sm-6">
       <a class="product-link" href="/products/<%= p._id %>">
       <img src="<%= p.images.default.url %>" alt="" class="img-thumbnail">
       <h6>
