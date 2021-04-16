@@ -36,7 +36,7 @@
     </div>
     
     <div class="mb-1">
-      <form action="#">
+      <form action="/addtocart" method="POST">
         <div class="amount-container">
           <div class="mb-2">
             <label for="amount" class="text-muted"><small>Quantity: </small></label>
@@ -45,8 +45,8 @@
             <span class="amtController" id="increment">+</span>
           </div>
         </div>
-        <button class="btn btn-primary atc-btn" type="submit">Add to Cart</button>
-        <button class="btn btn-primary bn-btn" type="submit">Buy now</button>
+        <button class="btn btn-primary atc-btn" name="addToCart" value="AddToCart" type="submit">Add to Cart</button>
+        <button class="btn btn-primary bn-btn" name="addToCart" value="BuyNow" type="submit">Buy now</button>
       </form>
     </div>
     <hr>

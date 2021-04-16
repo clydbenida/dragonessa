@@ -1,11 +1,13 @@
 <%- layout("./client/layouts/layout") %>
 
-<div class="row py-4">
-   
+<div class="row pt-4">
    <h1>
       All Products
    </h1>
-   <div class="col-md-2">
+</div>
+
+<div class="row py-4">
+   <div class="col-lg-2 col-md-12">
       <ul>
          <h4>Filter</h4>
          <li>Category</li>
@@ -16,30 +18,25 @@
          <li>Category</li>
       </ul>
    </div>
-   <div class="col-md-10 px-0">
-      <div class="container-fluid px-0">
-         <div class="row">
-            <% for (let p of products) { %>
-               <div class="col-md-2 col-sm-6 col-xs-12 product-item px-1">
-                  <a class="product-link" href="/products/<%= p._id %>">
-                     <img src="<%= p.images.default.url %>" alt="" class="img-thumbnail">
-                     <h6>
-                        <%= p.name %>
-                     </h6>
-                     <div>₱ <%= p.price %></div>
-                     <div>
-                        <img src="/img/star-rating/<%= p.rating %>.png" width="86"/>
-                     </div>
-                     <div>
-                        <%= p.sold %> sold
-                     </div>
-                  </a>
-               </div>
-            <% } %>
-         </div>
+   <div class="col-lg-10 col-md-12">
+      <div class="row">
+         <% for (let p of products) { %>
+            <div class="col-md-2 col-sm-6 col-xs-6">
+               <a class="product-link" href="/products/<%= p._id %>">
+                  <img src="<%= p.images.default.url %>" alt="" class="img-thumbnail img-fluid">
+                  <h6>
+                     <%= p.name %>
+                  </h6>
+                  <div>₱ <%= p.price %></div>
+                  <div>
+                     <img src="/img/star-rating/<%= p.rating %>.png" width="86"/>
+                  </div>
+                  <div>
+                     <%= p.sold %> sold
+                  </div>
+               </a>
+            </div>
+         <% } %>
       </div>
    </div>
-   
-   
-   
 </div>
