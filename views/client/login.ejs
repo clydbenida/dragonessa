@@ -1,7 +1,22 @@
 <%- layout("./client/layouts/layout") %>
 
-<form action="/login" method="POST">
-  <input type="text" name="username" id="username">
-  <input type="password" name="password" id="password">
-  <button>LOG IN</button>
-</form>
+<div class="container my-5">
+  <div class="row">
+    <div class="col-md-6 offset-3">
+      <h1>Login</h1>
+      <form action="/login" method="POST" autocomplete="off">
+        <label for="username">Username</label>
+        <div class="mb-3">
+          <input type="text" name="username" id="username" class="form-control">
+        </div>
+        
+        <div class="mb-3">
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" class="form-control">
+        </div>
+        
+        <button class="btn bg-cust">LOG IN</button>
+      </form>
+    </div>
+  </div>
+</div>

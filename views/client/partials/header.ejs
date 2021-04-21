@@ -28,7 +28,7 @@
                </li>
             <% } else { %> 
                <li class="nav-item px-5">
-                  <a href="/login"><%= currentUser.username.toUpperCase() %> </a>
+                  <a href="/profile"><%= currentUser.username.toUpperCase() %> </a>
                </li>
                <li class="nav-item">
                   <a href="/logout">LOGOUT</a>
@@ -63,7 +63,14 @@
                   <a href="/products" class="nav-link">All Products</a>
                </li>
                <li class="nav-item">
-                  <a href="#" class="nav-link"><img src="/img/003-shopping-cart.png" alt="" width="30"><span class="badge bg-transparent">0</span></a>
+                  <a href="/cart" class="nav-link">
+                     <img src="/img/003-shopping-cart.png" alt="" width="30">
+                     <% if (currentUser){ %> 
+                        <span class="badge bg-transparent"><%= currentUser.cart.length %> </span>
+                     <% } else { %> 
+                        <span class="badge bg-transparent"> 0 </span>
+                     <% } %> 
+                  </a>
                </li>
                <li class="nav-item">
                   <a href="#" class="nav-link"><img src="/img/045-heart.png" alt="" width="30"><span class="badge bg-transparent">0</span></a>

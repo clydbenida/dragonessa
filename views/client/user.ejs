@@ -1,0 +1,30 @@
+<%- layout("./client/layouts/layout") %> 
+
+<div class="row py-4">
+  <div class="col-2">
+    Greetings, <%= user.username %> 
+  </div>
+  <div class="col-10">
+    <div class="row">
+      <h4>My Profile</h4>
+      <div class="mb-3">
+        Username: <%= user.username %> 
+      </div>
+      <div class="mb-3">
+        Name: 
+      </div>
+      <div class="mb-3">
+        Email: <%= user.email %> 
+      </div>
+      <div class="mb-3">
+        Phone Number: 
+      </div>
+      <div class="mb-3">
+        Gender:
+          <input type="radio" name="gender" id="male"> <label for="male">Male</label>
+          <input type="radio" name="gender" id="female"> <label for="female">Female</label>
+          <input type="radio" name="gender" id="other"> <label for="other">Other</label>
+      </div>
+    </div>
+  </div>
+</div>

@@ -157,3 +157,12 @@ pre-nav-container {
 .nav-tab-link:hover {
    color:rgba(0, 0, 0, 0.575)
 }
+
+.cart-check {
+   font-size: large;
+}
+
+input:disabled {
+   background: white;
+   color: black
+}

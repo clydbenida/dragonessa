@@ -18,6 +18,7 @@ const cookieParser = require('cookie-parser');
 
 const adminRoutes = require("./routes/admin");
 const clientRoutes = require("./routes/client");
+const authRoutes = require('./routes/client/authentication');
 
 const User = require('./models/user')
 
@@ -67,8 +68,9 @@ app.use((req, res, next) => {
 })
 
 // ROUTES
-app.use("/admin", adminRoutes)
 app.use("/", clientRoutes)
+app.use("/", authRoutes);
+app.use("/admin", adminRoutes)
 
 app.all("*", (req, res, next) => {
   next(new ExpressError("Page not found!", 404));

@@ -1,0 +1,127 @@
+<%- layout("./client/layouts/layout") %> 
+
+<div class="row flex-column py-4">
+  <div class="col">
+    <h1>Cart</h1>
+  </div>
+  <div class="col">
+    <div class="row">
+      <div class="col-1">
+        <input type="checkbox" name="checkAll" id="checkAll">
+      </div>
+      <div class="col-7">
+        Product
+      </div>
+      <div class="col-2">
+        Quantity
+      </div>
+      <div class="col-2">
+        Price
+      </div>
+    </div>
+  </div>
+  <script>
+    var cartId = []
+  </script>
+  <% userCart.forEach((item, idx) => { %> 
+    <script>
+      cartId.push(`<%= item._id %>`)
+    </script>
+  <div class="col">
+    <div class="row align-items-center">
+      <div class="col-1">
+        <input type="checkbox" name="checkbox" id="checkbox" class="cart-check">
+      </div>
+      <div class="col-2">
+        <img src="<%= item.product.images.default.url %>" class="img-thumbnail" alt="" srcset="">
+      </div>
+      <div class="col-5">
+        <h6>
+          <a href="/products/<%= item.product._id %>"><%= item.product.name %></a>
+        </h6>
+        <small class="text-muted">Item Variant</small>
+      </div>
+      <div class="col-2">
+        <span role="button" id="decrement" class="amtController">&minus;</span>
+        <input type="number" name="qty" id="amount" value="<%= item.qty %>" min="1" disabled>
+        <span role="button" id="increment" class="amtController">+</span>
+      </div>
+      <div class="col-2">
+        <span id="price"><%= item.price %></span>
+      </div>
+    </div>
+  </div>
+  <% }) %> 
+  <div class="row">
+    <div class="col">
+      checkout price <input type="number" name="checkoutPrice" id="checkoutPrice" min="0" value="0" disabled>
+      <button>Checkout</button>
+    </div>
+    
+  </div>
+</div>
+
+<script>
+const allCheckBox = document.querySelectorAll("#checkbox");
+const allQty = document.querySelectorAll("#amount");
+const allInc = document.querySelectorAll("#increment");
+const allDec = document.querySelectorAll("#decrement");
+const allPrice = document.querySelectorAll("#price");
+const checkoutPrice = document.querySelector("#checkoutPrice");
+
+
+allCheckBox.forEach((checkbox, idx) => {
+  checkbox.addEventListener('change', function(e) {
+    if(e.target.checked) {
+      console.dir(checkbox.checked)
+      checkoutPrice.value = parseFloat(checkoutPrice.value) + parseFloat(allPrice[idx].textContent)
+    } else {
+      checkoutPrice.value = parseFloat(checkoutPrice.value) - parseFloat(allPrice[idx].textContent)
+    }
+  })
+  console.log(cartId[idx])
+
+  addEvent(allInc[idx], idx, "click", checkbox);
+  addEvent(allDec[idx], idx, "click", checkbox);
+})
+
+function addEvent(el, idx, str, checkbox) {
+  return el.addEventListener(str, function (e) {
+    if (e.target.textContent == "+") {
+      var num = parseInt(allQty[idx].value);
+      num = num + 1;
+      var newPrice = (parseInt(allPrice[idx].textContent)/(num-1))*num;
+      allPrice[idx].textContent = newPrice
+      allQty[idx].value = num;
+      if (checkbox.checked) {
+        checkoutPrice.value = parseInt(checkoutPrice.value) + (parseInt(allPrice[idx].textContent)/(num))
+      }
+    } else {
+      if (allQty[idx].value != 1){
+        var num = parseInt(allQty[idx].value);
+        num = num - 1;
+        var newPrice = (parseInt(allPrice[idx].textContent)/(num+1))*num;
+        allPrice[idx].textContent = newPrice
+        allQty[idx].value -= 1
+        if (checkbox.checked) {
+        checkoutPrice.value = parseInt(checkoutPrice.value) - (parseInt(allPrice[idx].textContent)/(num))
+      }
+      }
+    }
+  })
+}
+
+function changeAmount (e) {
+  if (e.target.textContent == "+") {
+    var num = parseInt(amount.value);
+    num = num + 1;
+    amount.value = num;
+    
+  } else {
+    if (amount.value == 1)
+      return
+    amount.value -= 1
+  }
+}
+
+</script>

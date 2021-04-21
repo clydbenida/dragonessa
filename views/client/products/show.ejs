@@ -36,13 +36,13 @@
     </div>
     
     <div class="mb-1">
-      <form action="/addtocart" method="POST">
+      <form action="/addtocart/<%= product._id %>" method="POST">
         <div class="amount-container">
           <div class="mb-2">
             <label for="amount" class="text-muted"><small>Quantity: </small></label>
-            <span class="amtController" id="decrement">&minus;</span>
+            <span role="button" class="amtController" id="decrement">&minus;</span>
             <input type="number" name="amount" id="amount" min="0" value="1">
-            <span class="amtController" id="increment">+</span>
+            <span role="button" class="amtController" id="increment">+</span>
           </div>
         </div>
         <button class="btn btn-primary atc-btn" name="addToCart" value="AddToCart" type="submit">Add to Cart</button>
