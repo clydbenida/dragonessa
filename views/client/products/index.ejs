@@ -21,13 +21,17 @@
    <div class="col-lg-10 col-md-12">
       <div class="row">
          <% for (let p of products) { %>
-            <div class="col-md-2 col-sm-6 col-xs-6">
+            <div class="col-md-2 col-sm-6 col-xs-6 product-card pb-2">
                <a class="product-link" href="/products/<%= p._id %>">
                   <img src="<%= p.images.default.url %>" alt="" class="img-thumbnail img-fluid">
-                  <h6>
-                     <%= p.name %>
-                  </h6>
-                  <div>₱ <%= p.price %></div>
+                  <div class="name-product">
+                     <% if (p.name.length > 30){ %> 
+                        <%= p.name.split('').slice(0, 30).join('').concat("...") %> 
+                     <% } else { %>
+                        <%= p.name %>
+                     <% } %>  
+                  </div>
+                  <div class="product-price">₱ <%= p.price %></div>
                   <div>
                      <img src="/img/star-rating/<%= p.rating %>.png" width="86"/>
                   </div>

@@ -1,0 +1,18 @@
+<%- layout("./client/layouts/layout") %>
+
+<div class="row py-4">
+  <div class="col-2">
+    Greetings, <%= user.username %> 
+    <ul>
+      <li><a href="">Profile</a></li>
+      <li><a href="">My Banks and Cards</a></li>
+      <li><a href="/profile/addresses">Addresses</a></li>
+      <li><a href="">Change Password</a></li>
+    </ul>
+    <h6>Purchases</h6>
+  </div>
+
+  <div class="col-10">
+    <%- body %> 
+  </div>
+</div>

@@ -1,6 +1,6 @@
 <%- layout("./client/layouts/layout") %>
 
-<div class="row py-4">
+<div class="row py-4 bg-white">
   <div class="col-md-4">
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
@@ -36,7 +36,7 @@
     </div>
     
     <div class="mb-1">
-      <form action="/addtocart/<%= product._id %>" method="POST">
+      <form action="/cart/<%= product._id %>" method="POST">
         <div class="amount-container">
           <div class="mb-2">
             <label for="amount" class="text-muted"><small>Quantity: </small></label>
@@ -52,17 +52,20 @@
     <hr>
   </div>
 </div>
-<div class="container">
-  <div class="row">
-    <h3>Product Description</h3>
+
+<div class="row bg-white">
+  <h3>Product Description</h3>
+  <div class="container">
     <p id="description"><%- product.desc %> </p>
   </div>
-  <div class="row">
-    <div class="container-fluid" id="reviewContainer">
-      reviews
-    </div>
+  
+</div>
+<div class="row bg-white">
+  <div class="container-fluid" id="reviewContainer">
+    reviews
   </div>
 </div>
+
 
 <script>
   const inc = document.getElementById("increment");

@@ -1,5 +1,6 @@
 body {
    font-family: 'Roboto', sans-serif;
+   background-color: #f1f1f1;
 }
 
 nav {
@@ -165,4 +166,21 @@ pre-nav-container {
 input:disabled {
    background: white;
    color: black
+}
+
+.product-card {
+   margin: .25em;
+   font-size: .85rem;
+   background-color: #fff;
+   border-radius: 5px;
+}
+
+.product-price {
+   color: #ca90c6;
+   font-size: 1rem;
+   font-weight: 500;
+}
+
+.name-product {
+   overflow-wrap: break-word;
 }

@@ -1,0 +1,55 @@
+<%- layout("/client/user/layout") %>
+
+
+    <div class="row">
+      <div class="row d-flex align-items-center">
+        <div class="col"><h4>My Profile</h4></div>
+        <div class="col"><a href="#"><small>Edit Profile</small></a></div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-3">
+          Username:
+        </div>
+        <div class="col-9">
+          <%= user.username %> 
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-3">
+          Name:
+        </div>
+        <div class="col-9">
+          <%= user.username %> 
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-3">
+          Email:
+        </div>
+        <div class="col-9">
+          <%= user.email %> 
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-3">
+          Phone Number:
+        </div>
+        <div class="col-9">
+          Number
+        </div>
+      </div>
+      
+      <div class="row mb-3">
+        <div class="col-3">
+          Gender:
+        </div>
+        <div class="col-9">
+          <span class="me-5"><input type="radio" name="gender" id="male"> <label for="male">Male</label></span>
+          <span class="me-5"><input type="radio" name="gender" id="female"> <label for="female">Female</label></span>
+          <span class="me-5"><input type="radio" name="gender" id="other"> <label for="other">Other</label></span>
+        </div>
+      </div>
+    </div>

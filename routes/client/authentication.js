@@ -4,7 +4,13 @@ const passport = require('passport');
 const User = require('../../models/user');
 const catchAsync = require("../../utils/CatchAsync");
 
-router.get("/login", (req, res) => {
+router.get("/login", (req, res, next) => {
+  if (req.user){
+    req.flash('warning', 'User already logged in')
+    res.redirect("back")
+  }else
+    next()
+}, (req, res) => {
   res.render("./client/login");
 })
 
@@ -24,8 +30,8 @@ router.post("/login",
   })
 
 router.post("/register", catchAsync(async (req, res) => {
-  const { email, username, password } = req.body.user;
-  const newUser = await new User({email, username})
+  const { email, username, password, fname, lname } = req.body.user;
+  const newUser = await new User({email, username, fname, lname})
 
   // Make user automatically logged in after registering
   const registeredUser = await User.register(newUser, password);

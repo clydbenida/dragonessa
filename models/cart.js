@@ -23,3 +23,21 @@ const cartSchema = new Schema ({
 })
 
 module.exports = mongoose.model('Cart', cartSchema);
+
+/*
+
+cart: {
+  id,
+  user,
+  productList: [{
+    productId,
+    qty,
+    price,
+    isChecked
+  }],
+  checkoutPrice
+}
+
+
+
+*/
